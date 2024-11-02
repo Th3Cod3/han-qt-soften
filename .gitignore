@@ -1,0 +1,9 @@
+*.o
+.qmake.stash
+.cache
+compile_commands.json
+SOFTEN
+moc_*
+qrc_*
+Makefile
+stm.png

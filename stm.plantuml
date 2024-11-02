@@ -1,0 +1,32 @@
+@startuml
+
+state "Startup rutine" as start
+state "Idle" as idle
+state "Show error" as error
+state "Check cup present" as cup
+state "Heating Water" as heating
+state "Grinding beans" as grinding
+state "Brewing coffee" as brew
+
+[*] --> start
+start --> idle : Swith on
+idle --> cup : User request coffee
+
+cup --> heating : Cup detected
+cup --> error : Cup no detected
+
+heating --> grinding : Tempature reach
+heating --> error : Timeout
+
+grinding --> brew : Weight reach
+grinding --> error : Timeout
+
+brew --> clean : Reach volume
+brew --> error : Timeout
+
+clean --> idle
+idle --> [*] : Switch off
+
+error --> idle : Service key
+
+@enduml
