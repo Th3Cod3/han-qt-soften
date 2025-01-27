@@ -1,0 +1,4 @@
+Language: Cpp
+BasedOnStyle: K&R
+ColumnLimit: 120
+AlignAfterOpenBracket: BlockIndent

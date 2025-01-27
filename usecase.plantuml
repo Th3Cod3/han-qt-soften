@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+actor user
+rectangle Actions {
+  usecase "On/Off" as onoff
+  usecase "Espresso" as O1
+  usecase "Coffee" as O2
+  usecase "Water" as O3
+  usecase "Skip error" as serror
+}
+user --> onoff
+user --> serror
+user --> O1
+user --> O2
+user --> O3
+@enduml

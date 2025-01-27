@@ -1,0 +1,120 @@
+@startuml
+class QMainWindow
+
+class QWidget
+
+class MainWindow {
+  +MainWindow(QWidget *parent = nullptr)
+  +~MainWindow()
+  -Ui_MainWindow *ui
+  -StateMachine *statemachine
+  -void setupStates()
+}
+
+class Ui_MainWindow {
+  +UserWidget *user
+  +ControlWidget *control
+  +void setupUi(QMainWindow *MainWindow)
+  +void setupText(QMainWindow *MainWindow)
+}
+
+class UserWidget {
+  +UserWidget(QMainWindow *parent = nullptr)
+  +QWidget *frame
+  +QGridLayout *grid
+  +QPushButton *offBtn
+  +QGridLayout *frameGrid
+  +QLabel *centerLabel
+  +QPushButton *espressoBtn
+  +QPushButton *coffeeBtn
+  +QPushButton *waterBtn
+  +QLabel *coffeOptionsLabel
+  +void showText()
+  +void hideText()
+  +void showOptions()
+  +void hideOptions()
+  +void setupUi()
+  +void setupText()
+}
+
+class ControlWidget {
+  +ControlWidget(QMainWindow *parent = nullptr)
+  +QGridLayout *grid
+  +QPushButton *nextBtn
+  +QLabel *timeoutLabel
+  +void setupUi()
+  +void setupText()
+}
+
+class StateMachine {
+  +StateMachine(Ui_MainWindow *ui)
+
+  .. Signals ..
+  +void switchOff()
+  +void userRequest()
+  +void cupRemoved()
+  +void cupDetected()
+  +void cupPlaced()
+  +void waterHeating()
+  +void waterHeated()
+  +void coffeeGrinding()
+  +void weightReached()
+  +void coffeeBrewing()
+  +void volumeReached()
+  +void coffeeReady()
+  +void coffeeBeansEmpty()
+  +void waterEmpty()
+  +void timeout()
+
+  .. Slots ..
+  -void offEntered()
+  -void offExited()
+  -void startUpEntered()
+  -void startUpExited()
+  -void idleEntered()
+  -void idleExited()
+  -void checkCupEntered()
+  -void checkCupExited()
+  -void heatingEntered()
+  -void heatingExited()
+  -void grindingEntered()
+  -void grindingExited()
+  -void brewingEntered()
+  -void brewingExited()
+  -void cleaningEntered()
+  -void cleaningExited()
+  -void errorEntered()
+  -void errorExited()
+  -void shutdownEntered()
+  -void shutdownExited()
+  -void tiggerTimeout()
+  -void updateState()
+
+  .. Private Members ..
+  -Ui_MainWindow *ui
+  -QTimer *refreshTimer
+  -QTimer *timer
+
+  .. Private Methods ..
+  -void setupStates()
+  -void startUpRefresh()
+  -void shutdownRefresh()
+}
+
+MainWindow --|> QMainWindow
+MainWindow --> Ui_MainWindow : "ui"
+MainWindow --> StateMachine : "statemachine"
+
+Ui_MainWindow --> UserWidget : "user"
+Ui_MainWindow --> ControlWidget : "control"
+Ui_MainWindow --> QMainWindow : "setupUi(MainWindow), setupText(MainWindow)"
+
+UserWidget ..> QMainWindow : "parent"
+UserWidget --|> QWidget
+
+ControlWidget ..> QMainWindow : "parent"
+ControlWidget --|> QWidget
+
+StateMachine --|> QStateMachine
+StateMachine --> Ui_MainWindow : "ui"
+@enduml

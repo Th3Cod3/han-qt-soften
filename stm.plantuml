@@ -13,7 +13,8 @@ start --> idle : Swith on
 idle --> cup : User request coffee
 
 cup --> heating : Cup detected
-cup --> error : Cup no detected
+cup --> heating : Skip
+cup --> idle : Timeout
 
 heating --> grinding : Tempature reach
 heating --> error : Timeout

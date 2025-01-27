@@ -11,20 +11,29 @@ void UserWidget::setupUi() {
   grid = new QGridLayout(this);
   grid->setRowStretch(0, 1);
   grid->setColumnStretch(0, 1);
+  grid->setObjectName("user->grid");
 
   frame = new QWidget();
+  frame->setObjectName("user->frame");
 
   offBtn = new QPushButton();
+  offBtn->setObjectName("user->offBtn");
 
   frameGrid = new QGridLayout();
+  frameGrid->setObjectName("user->frameGrid");
 
   centerLabel = new QLabel();
+  centerLabel->setObjectName("user->centerLabel");
   centerLabel->setAlignment(Qt::AlignCenter);
 
   espressoBtn = new QPushButton();
+  espressoBtn->setObjectName("user->espressoBtn");
   coffeeBtn = new QPushButton();
+  coffeeBtn->setObjectName("user->coffeeBtn");
   waterBtn = new QPushButton();
+  waterBtn->setObjectName("user->waterBtn");
   coffeOptionsLabel = new QLabel();
+  coffeOptionsLabel->setObjectName("user->coffeOptionsLabel");
 
   frameGrid->addWidget(coffeOptionsLabel, 0, 0, 1, 3);
   frameGrid->addWidget(espressoBtn, 1 , 0);

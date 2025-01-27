@@ -29,7 +29,6 @@ signals:
   void waterEmpty(void);
   void timeout(void);
 
-
 private slots:
   void offEntered(void);
   void offExited(void);

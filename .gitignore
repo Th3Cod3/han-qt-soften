@@ -1,9 +1,11 @@
 *.o
 .qmake.stash
 .cache
+*.moc
 compile_commands.json
 SOFTEN
 moc_*
 qrc_*
 Makefile
-stm.png
+StatemachineTests
+target_wrapper.sh

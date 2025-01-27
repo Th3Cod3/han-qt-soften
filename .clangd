@@ -1,0 +1,13 @@
+CompileFlags:
+  Add:
+    - "-I."
+    - "-I./src"
+    - "-I./src/ui/"
+    - "-I./src/app/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/QtTest/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/QtCore/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/QtGui/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/QtWidgets/"
+    - "-I/usr/include/x86_64-linux-gnu/qt6/QtStateMachine/"
+
