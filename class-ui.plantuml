@@ -1,0 +1,44 @@
+@startuml
+class MainWindow {
+  +MainWindow(QWidget *parent = nullptr)
+  +~MainWindow()
+  -Ui_MainWindow *ui
+  -StateMachine *statemachine
+  -void setupStates()
+}
+
+class Ui_MainWindow {
+  +UserWidget *user
+  +ControlWidget *control
+  +void setupUi(QMainWindow *MainWindow)
+  +void setupText(QMainWindow *MainWindow)
+}
+
+class UserWidget {
+  +UserWidget(QMainWindow *parent = nullptr)
+  +QWidget *frame
+  +QGridLayout *grid
+  +QPushButton *offBtn
+  +QGridLayout *frameGrid
+  +QLabel *centerLabel
+  +QPushButton *espressoBtn
+  +QPushButton *coffeeBtn
+  +QPushButton *waterBtn
+  +QLabel *coffeOptionsLabel
+  +void showText()
+  +void hideText()
+  +void showOptions()
+  +void hideOptions()
+  +void setupUi()
+  +void setupText()
+}
+
+class ControlWidget {
+  +ControlWidget(QMainWindow *parent = nullptr)
+  +QGridLayout *grid
+  +QPushButton *nextBtn
+  +QLabel *timeoutLabel
+  +void setupUi()
+  +void setupText()
+}
+@enduml

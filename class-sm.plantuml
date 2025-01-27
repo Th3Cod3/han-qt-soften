@@ -1,0 +1,56 @@
+@startuml
+class StateMachine {
+  +StateMachine(Ui_MainWindow *ui)
+
+  .. Signals ..
+  +void switchOff()
+  +void userRequest()
+  +void cupRemoved()
+  +void cupDetected()
+  +void cupPlaced()
+  +void waterHeating()
+  +void waterHeated()
+  +void coffeeGrinding()
+  +void weightReached()
+  +void coffeeBrewing()
+  +void volumeReached()
+  +void coffeeReady()
+  +void coffeeBeansEmpty()
+  +void waterEmpty()
+  +void timeout()
+
+  .. Slots ..
+  -void offEntered()
+  -void offExited()
+  -void startUpEntered()
+  -void startUpExited()
+  -void idleEntered()
+  -void idleExited()
+  -void checkCupEntered()
+  -void checkCupExited()
+  -void heatingEntered()
+  -void heatingExited()
+  -void grindingEntered()
+  -void grindingExited()
+  -void brewingEntered()
+  -void brewingExited()
+  -void cleaningEntered()
+  -void cleaningExited()
+  -void errorEntered()
+  -void errorExited()
+  -void shutdownEntered()
+  -void shutdownExited()
+  -void tiggerTimeout()
+  -void updateState()
+
+  .. Private Members ..
+  -Ui_MainWindow *ui
+  -QTimer *refreshTimer
+  -QTimer *timer
+
+  .. Private Methods ..
+  -void setupStates()
+  -void startUpRefresh()
+  -void shutdownRefresh()
+}
+@enduml

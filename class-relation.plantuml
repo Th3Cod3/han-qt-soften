@@ -1,0 +1,32 @@
+@startuml
+class QMainWindow
+
+class QWidget
+
+class MainWindow 
+
+class Ui_MainWindow
+
+class UserWidget
+
+class ControlWidget
+
+class StateMachine
+
+MainWindow --|> QMainWindow
+MainWindow --> Ui_MainWindow : "ui"
+MainWindow --> StateMachine : "statemachine"
+
+Ui_MainWindow --> UserWidget : "user"
+Ui_MainWindow --> ControlWidget : "control"
+Ui_MainWindow --> QMainWindow : "setupUi(MainWindow), setupText(MainWindow)"
+
+UserWidget ..> QMainWindow : "parent"
+UserWidget --|> QWidget
+
+ControlWidget ..> QMainWindow : "parent"
+ControlWidget --|> QWidget
+
+StateMachine --|> QStateMachine
+StateMachine --> Ui_MainWindow : "ui"
+@enduml
